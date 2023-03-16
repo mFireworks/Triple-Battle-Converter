@@ -29,13 +29,21 @@ int main(int argc, char* argv[]) {
         totalSize += entry.file_size();
     }
 
-    if (totalSize != 16276 || filePaths.size() != 814) {
-        std::cout << "The size of the files doesn't equal the expected amount in Black 2. Ensure you extracted the right data.";
+    const bool isBW1 = totalSize == 12316 && filePaths.size() == 616;
+    const bool isBW2 = totalSize == 16276 && filePaths.size() == 814;
+    if (!isBW1 && !isBW2) {
+        std::cout << "The size of the files doesn't equal the expected amount. Ensure you extracted the right data.\n";
+        std::cout << "The only games supported are Black, White, Black 2, and White 2\n";
         return 0;
     }
 
-    // omit empty trainer, first rival battle and required multi-battle
-    for (const size_t omitIndex : { 0, 161, 162, 163, 360, 361, 362, 363, 364, 365 }) {
+    std::vector<size_t> omitSet;
+    if (isBW1)
+        omitSet = { 0, 53, 54, 55, 59, 60, 61, 64 }; // omit empty trainer, first rival fights, and first N fight. Same as universial randomizer
+    else
+        omitSet = { 0, 161, 162, 163, 360, 361, 362, 363, 364, 365 };     // omit empty trainer, first rival battle and required multi-battle
+
+    for (const size_t omitIndex : omitSet) {
         filePaths.at(omitIndex).clear();
     }
     
