@@ -20,7 +20,7 @@ This tool is to automate the process of setting all the trainers within Pokemon 
 
 It's recommended the watch the following youtube video for clear instructions, but a written guide is provided below:
 
-[Youtube Video](video Here)
+[Youtube Video](https://youtu.be/u326YDk3aJE)
 
 1. Open the `Universal Pokemon Randomizer` and load your game into the tool. Most of the settings within here are fair game. Though there are two required settings to set.
    - Under `Foe Pokemon`, randomize the trainer's pokemon and check `Double Battle Mode`. This ensures that the trainer's AI is set to the multi-battle AI, so they won't attack their own pokemon.

@@ -398,5 +398,6 @@ FodyWeavers.xsd
 *.sln.iml
 
 # ------------------
-# Ignore Test Data
+# Ignore Test Data & Deliverables
 TestData
+Deliverable
