@@ -109,7 +109,7 @@ namespace TripleBattleConverter2
                     {
                         BinaryWriter writer = new BinaryWriter(File.Open(file, FileMode.Open, FileAccess.ReadWrite));
                         writer.BaseStream.Position = 0x02;
-                        writer.Write(0x02);
+                        writer.Write((byte)0x02);
                         writer.Close();
                     } catch
                     {
