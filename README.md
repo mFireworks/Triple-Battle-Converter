@@ -4,6 +4,10 @@
 
 This tool is to automate the process of setting all the trainers within Pokemon Black 1, White 1, Black 2, and White 2 to triple battles. It doesn't do anything more than just setting the Battle Type flag in the usable trainers from whatever it is prior, to a triple battle.
 
+## Disclaimer
+
+This program modifies files within a folder at the binary level. Incorrect usage of this tool can lead to potential data corruption. There are a number of checks in place to mitigate the chances of this occurring, but use this tool at your own risk.
+
 ### Required Tools
 
 [Universal Pokemon Randomizer](https://github.com/Ajarmar/universal-pokemon-randomizer-zx/releases) - Used to randomize the game and set some of the flags that this tool doesn't set. (This tool does require java to run)
@@ -20,7 +24,7 @@ This tool is to automate the process of setting all the trainers within Pokemon 
 
 It's recommended the watch the following youtube video for clear instructions, but a written guide is provided below:
 
-[Youtube Video](https://youtu.be/u326YDk3aJE)
+[Youtube Video](https://www.youtube.com/watch?v=u3LQNY04gO8)
 
 1. Open the `Universal Pokemon Randomizer` and load your game into the tool. Most of the settings within here are fair game. Though there are two required settings to set.
    - Under `Foe Pokemon`, randomize the trainer's pokemon and check `Double Battle Mode`. This ensures that the trainer's AI is set to the multi-battle AI, so they won't attack their own pokemon.
@@ -37,11 +41,12 @@ It's recommended the watch the following youtube video for clear instructions, b
     - Black 1/White 1: 616 Files
     - Black 2/White 2: 814 Files
 
-5. In your file explorer, open the newly created `trdata` folder and copy this folder's absolute path.
+5. Now in the Triple Battle Converter folder, double-click on `TripleBattleConverter2.exe` and a small window should pop-up.
 
-6. Now in the `Triple Battle Converter` folder, open the `run.bat` file and replace `ENTER-trdata-PATH-HERE` with the path that you just copied.
+6. Within the window, click on the `Browse...` button and navigate to the newly created `trdata` folder. Select it and click `Select Folder`.
 
-7. Save the `run.bat` and then double-click the file to run it. A command prompt should pop up with some information within it. If all went well, you should see **Modified 616/814 Trainers**. That means all the trainers are now triple battles!
+7. Select which game you're converting below, and then click the `Convert` button.
+   If all went well, you should see a window pop-up with **Modified 616/814 Trainers** inside. That means all the trainers are now triple battles!
 
 8. Now reopen `NDS Editor (kiwi.ds)`, and in the toolbar, go `Tools > Make Narc File...`. In the upper field, select the path to the `trdata` folder that we just modified and click `OK`. You should now have a new `trdata.narc` file within the same folder as the `NDS Editor (kiwi.ds)`.
 
