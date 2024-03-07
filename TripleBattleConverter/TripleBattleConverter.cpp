@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
     if (isBW1)
         omitSet = { 0, 53, 54, 55, 59, 60, 61, 64 }; // omit empty trainer, first rival fights, and first N fight. Same as universial randomizer
     else
-        omitSet = { 0, 161, 162, 163, 360, 361, 362, 363, 364, 365 };     // omit empty trainer, first rival battle and required multi-battle
+        omitSet = { 0, 161, 162, 163, 342, 347, 356, 360, 361, 362, 363, 364, 365, 374, 375, 376, 377, 797, 798, 799 };     // omit empty trainer, first rival battle and required multi-battles
 
     for (const size_t omitIndex : omitSet) {
         filePaths.at(omitIndex).clear();
