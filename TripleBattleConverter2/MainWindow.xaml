@@ -15,11 +15,11 @@
         </Grid.ColumnDefinitions>
         <Label Content="Path to &quot;trdata&quot; folder:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.417,-0.647" Width="131" Height="26" Margin="10,10,0,0" Grid.ColumnSpan="2"/>
         <TextBox x:Name="PathField" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="18" RenderTransformOrigin="0.219,0.668" Margin="0,14,0,0" IsEnabled="False"/>
-        <Button Grid.Column="2" Content="Browse..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="20" Click="Button_Click" Margin="10,13,0,0"/>
-        <Button Content="Convert" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Grid.Column="2" Width="61" Click="Button_Click_1"/>
+        <Button Grid.Column="2" Content="Browse..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="20" Click="doBrowseFolder" Margin="10,13,0,0"/>
+        <Button Content="Convert" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Grid.Column="2" Width="61" Click="doConvert"/>
         <Label Content="Converting Game:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="Game1" Grid.Column="1" Content="Black/White" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Game"/>
-        <RadioButton x:Name="Game2" Grid.Column="1" Content="Black 2/White 2" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" GroupName="Game"/>
+        <RadioButton x:Name="BW1" Grid.Column="1" Content="Black/White" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Game"/>
+        <RadioButton x:Name="BW2" Grid.Column="1" Content="Black 2/White 2" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" GroupName="Game"/>
         <Label x:Name="BattleModeLabel" Content="Battle Type:" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
         <Separator HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" Height="8" Width="527" Grid.ColumnSpan="3"/>
         <Separator HorizontalAlignment="Center" Margin="0,87,0,0" VerticalAlignment="Top" Height="8" Width="527" Grid.ColumnSpan="3"/>

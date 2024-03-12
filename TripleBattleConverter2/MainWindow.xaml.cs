@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using TripleBattleConverter2.src;
 
 namespace TripleBattleConverter2
 {
@@ -26,7 +27,7 @@ namespace TripleBattleConverter2
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void doBrowseFolder(object sender, RoutedEventArgs e)
         {
             OpenFolderDialog folderPicker = new OpenFolderDialog();
             bool? pickedDir = folderPicker.ShowDialog();
@@ -41,7 +42,22 @@ namespace TripleBattleConverter2
             MessageBox.Show(message, "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private long? checkFiles(string[] files)
+        {
+            long fileSize = 0;
+            foreach (string filePath in files)
+            {
+                if (Path.GetExtension(filePath).Length != 0 && !Path.GetExtension(filePath).Equals(".bin"))
+                {
+                    return null;
+                }
+                var file = new FileInfo(filePath);
+                fileSize += file.Length;
+            }
+            return fileSize;
+        }
+
+        private void doConvert(object sender, RoutedEventArgs e)
         {
             if (PathField.Text.Length > 0)
             {
@@ -56,50 +72,35 @@ namespace TripleBattleConverter2
                     return;
                 }
                 string[] files = Directory.GetFiles(PathField.Text);
-                int fileCount = files.Length;
-                long fileSize = 0;
-                foreach (string filePath in files)
+                long? fileSize = checkFiles(files);
+                if (fileSize == null)
                 {
-                    if (Path.GetExtension(filePath).Length != 0)
-                    {
-                        sendError("Found file with an extension. trdata files shouldn't have an extension. Make sure you selected the right directory!");
-                        return;
-                    }
-                    var file = new FileInfo(filePath);
-                    fileSize += file.Length;
+                    sendError("Found file with an extension. trdata files shouldn't have an extension. Make sure you selected the right directory!");
+                    return;
                 }
-                if (Game1.IsChecked == true)
+
+                GameType game = new BW1();
+                //if (BW1.IsChecked == true)
+                //    game = new BW1();
+                if (BW2.IsChecked == true)
+                    game = new BW2();
+
+                switch (game.verifyFiles(files.Length, fileSize))
                 {
-                    if (fileSize != 12316)
-                    {
+                    case ErrorType.IncorrectFileSize:
                         sendError("The total file size for the trdata folder doesn't match what's expected for Black/White. Make sure you selected the right directory!");
                         return;
-                    }
-                    if (files.Length != 616)
-                    {
+                    case ErrorType.IncorrectFileCount:
                         sendError("There's not 616 files within the trdata folder for Black/White. Make sure you selected the right directory!");
                         return;
-                    }
-
-                    foreach (int omit in game1Omit)
-                        files[omit] = "";
                 }
-                else if (Game2.IsChecked == true)
-                {
-                    if (fileSize != 16276)
-                    {
-                        sendError("The total file size for the trdata folder doesn't match what's expected for Black 2/White 2. Make sure you selected the right directory!");
-                        return;
-                    }
-                    if (files.Length != 814)
-                    {
-                        sendError("There's not 814 files within the trdata folder for Black 2/White 2. Make sure you selected the right directory!");
-                        return;
-                    }
+                game.omitTrainers(files);
 
-                    foreach (int omit in game2Omit)
-                        files[omit] = "";
-                }
+                BattleType battleType = new TripleBattles();
+                //if (TripleBattles.IsChecked == true)
+                //    type = new TripleBattles();
+                if (RotationBattles.IsChecked == true)
+                    battleType = new RotationBattles();
 
                 foreach (string file in files)
                 {
@@ -107,9 +108,17 @@ namespace TripleBattleConverter2
                         continue;
                     try
                     {
+                        BinaryReader reader = new BinaryReader(File.OpenRead(file));
+                        reader.BaseStream.Seek(0x0C, SeekOrigin.Begin);
+                        byte currentAI = reader.ReadByte();
+                        reader.Close();
+
                         BinaryWriter writer = new BinaryWriter(File.Open(file, FileMode.Open, FileAccess.ReadWrite));
-                        writer.BaseStream.Position = 0x02;
-                        writer.Write((byte)0x02);
+                        writer.BaseStream.Seek(game.getPositionOffset(), SeekOrigin.Begin);
+                        writer.Write(battleType.getBattleByte()); // Change fight from it's value to our new type.
+
+                        writer.BaseStream.Seek(0x0C, SeekOrigin.Begin);
+                        writer.Write(battleType.convertTrainerAI(currentAI));
                         writer.Close();
                     } catch
                     {
