@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace TripleBattleConverter2.src
 {
-    internal class BW2 : GameType
+    internal class ORAS : GameType
     {
-        public BW2()
+        public ORAS()
         {
-            omitList = [ 0, 161, 162, 163, 342, 347, 356, 360, 361, 362, 363, 364, 365, 374, 375, 376, 377, 797, 798, 799 ];    // omit empty trainer, first rival battle and required multi-battles
-            battleOffset = 0x02;
-            AIOffset = 0x0C;
+            omitList = [ 0, 1, 2, 3, 4, 5, 6, 668, 669, 670, 671, 672, 673 ]; // Initial Fights & Horde Battles. Need to do Multi-Battles too
+            battleOffset = 0x06;
+            AIOffset = 0x10;
         }
 
         public override ErrorType verifyFiles(int count, long? size)
         {
-            if (size == null || size != 16276)
+            if (size == null || size != 22792)
             {
                 return ErrorType.IncorrectFileSize;
             }
-            if (count != 814)
+            if (count != 950)
             {
                 return ErrorType.IncorrectFileCount;
             }

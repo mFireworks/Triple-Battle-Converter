@@ -9,9 +9,11 @@ namespace TripleBattleConverter2.src
     internal abstract class GameType
     {
         protected int[] omitList = [];
-        protected byte positionOffset;
+        protected byte battleOffset;
+        protected byte AIOffset;
 
-        public byte getPositionOffset() { return positionOffset; }
+        public byte getBattleOffset() { return battleOffset; }
+        public byte getAIOffset() {  return AIOffset; }
 
         public abstract ErrorType verifyFiles(int count, long? size);
         public void omitTrainers(string[] files)

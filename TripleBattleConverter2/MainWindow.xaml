@@ -20,11 +20,12 @@
         <Label Content="Converting Game:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="BW1" Grid.Column="1" Content="Black/White" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Game"/>
         <RadioButton x:Name="BW2" Grid.Column="1" Content="Black 2/White 2" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" GroupName="Game"/>
-        <Label x:Name="BattleModeLabel" Content="Battle Type:" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="BattleModeLabel" Content="Battle Type:" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top"/>
         <Separator HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" Height="8" Width="527" Grid.ColumnSpan="3"/>
-        <Separator HorizontalAlignment="Center" Margin="0,87,0,0" VerticalAlignment="Top" Height="8" Width="527" Grid.ColumnSpan="3"/>
-        <RadioButton x:Name="TripleBattles" Grid.Column="1" Content="Triple Battles" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" IsChecked="True"/>
-        <RadioButton x:Name="RotationBattles" Grid.Column="1" Content="Rotation Battles" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top"/>
+        <Separator HorizontalAlignment="Center" Margin="0,107,0,0" VerticalAlignment="Top" Height="8" Width="527" Grid.ColumnSpan="3"/>
+        <RadioButton x:Name="TripleBattles" Grid.Column="1" Content="Triple Battles" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Type"/>
+        <RadioButton x:Name="RotationBattles" Grid.Column="1" Content="Rotation Battles" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" GroupName="Type"/>
+        <RadioButton x:Name="ORAS" Grid.Column="1" Content="Omega Ruby/Alpha Sapphire" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" GroupName="Game"/>
 
     </Grid>
 </Window>

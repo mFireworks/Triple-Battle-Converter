@@ -80,10 +80,12 @@ namespace TripleBattleConverter2
                 }
 
                 GameType game = new BW1();
-                //if (BW1.IsChecked == true)
-                //    game = new BW1();
                 if (BW2.IsChecked == true)
                     game = new BW2();
+                else if (ORAS.IsChecked == true)
+                    game = new ORAS();
+                //else if (BW1.IsChecked == true)
+                //    game = new BW1();
 
                 switch (game.verifyFiles(files.Length, fileSize))
                 {
@@ -97,10 +99,10 @@ namespace TripleBattleConverter2
                 game.omitTrainers(files);
 
                 BattleType battleType = new TripleBattles();
-                //if (TripleBattles.IsChecked == true)
-                //    type = new TripleBattles();
                 if (RotationBattles.IsChecked == true)
                     battleType = new RotationBattles();
+                //else if (TripleBattles.IsChecked == true)
+                //    type = new TripleBattles();
 
                 foreach (string file in files)
                 {
@@ -109,15 +111,15 @@ namespace TripleBattleConverter2
                     try
                     {
                         BinaryReader reader = new BinaryReader(File.OpenRead(file));
-                        reader.BaseStream.Seek(0x0C, SeekOrigin.Begin);
+                        reader.BaseStream.Seek(game.getAIOffset(), SeekOrigin.Begin);
                         byte currentAI = reader.ReadByte();
                         reader.Close();
 
                         BinaryWriter writer = new BinaryWriter(File.Open(file, FileMode.Open, FileAccess.ReadWrite));
-                        writer.BaseStream.Seek(game.getPositionOffset(), SeekOrigin.Begin);
+                        writer.BaseStream.Seek(game.getBattleOffset(), SeekOrigin.Begin);
                         writer.Write(battleType.getBattleByte()); // Change fight from it's value to our new type.
 
-                        writer.BaseStream.Seek(0x0C, SeekOrigin.Begin);
+                        writer.BaseStream.Seek(game.getAIOffset(), SeekOrigin.Begin);
                         writer.Write(battleType.convertTrainerAI(currentAI));
                         writer.Close();
                     } catch

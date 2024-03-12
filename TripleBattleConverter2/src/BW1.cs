@@ -11,7 +11,8 @@ namespace TripleBattleConverter2.src
         public BW1()
         {
             omitList = [ 0, 53, 54, 55, 59, 60, 61, 64 ]; // omit empty trainer, first rival fights, and first N fight. Same as universial randomizer
-            positionOffset = 0x02;
+            battleOffset = 0x02;
+            AIOffset = 0x0C;
         }
 
         public override ErrorType verifyFiles(int count, long? size)
