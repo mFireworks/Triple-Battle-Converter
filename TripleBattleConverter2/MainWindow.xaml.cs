@@ -82,6 +82,8 @@ namespace TripleBattleConverter2
                 GameType game = new BW1();
                 if (BW2.IsChecked == true)
                     game = new BW2();
+                else if (XY.IsChecked == true)
+                    game = new XY();
                 else if (ORAS.IsChecked == true)
                     game = new ORAS();
                 //else if (BW1.IsChecked == true)
