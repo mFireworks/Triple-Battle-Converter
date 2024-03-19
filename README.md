@@ -16,6 +16,8 @@ This program modifies files within a folder at the binary level. Incorrect usage
 
 [Universal Pokemon Randomizer](https://github.com/Ajarmar/universal-pokemon-randomizer-zx/releases) - Used to randomize the game and set some of the flags that this tool doesn't set. (This tool does require java to run)
 
+[.NET 8](https://dotnet.microsoft.com/en-us/download) - This tool is written in C#, which requires the .Net Runtime to be installed on your machine. This link should provide the download that fits your OS and processor.
+
 ** For Generation 5 **
 
 [Nitro Explorer 2](https://projectpokemon.org/home/files/file/2070-nitro-explorer/) - Used to extract compressed files from the game.
