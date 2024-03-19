@@ -113,9 +113,9 @@ It's recommended the watch the following youtube video for clear instructions, b
 
 There are a handful of trainers in each game that aren't triple battles. This seemed by design from the Universal Randomizer, so I followed their example. They are the following:
 
-Black 1/White 1: First battle against Cheren, Bianca, and N.
-Black 2/White 2: First battle against Rival and Multi-Battles throughout the game.
-X/Y: First Rival Fight, the battle for the Mega Ring, and some others I'm not too sure of.
-Omega Ruby/Alpha Sapphire: First Rival Fight
+- Black 1/White 1: First battle against Cheren, Bianca, and N.
+- Black 2/White 2: First battle against Rival and Multi-Battles throughout the game.
+- X/Y: First Rival Fight, the battle for the Mega Ring, and some others I'm not too sure of.
+- Omega Ruby/Alpha Sapphire: First Rival Fight
 
 Also, it appears that most route trainer battles don't initiate if you don't have enough pokemon in your team to start the battle. Some scripted battles, like rival battles and gym battles still seem to work. Just ensure you have 3 non-fainted pokemon in your team at all times for full functionality.
