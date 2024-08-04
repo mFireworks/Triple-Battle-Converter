@@ -91,23 +91,23 @@ It's recommended the watch the following youtube video for clear instructions, b
 
 7. Navigate to that directory you just extracted the files out of and you should see a folder named `#_`, rename this folder to `trdata`.
 
-5. Now in the Triple Battle Converter folder, double-click on the Triple Battle Converter tool pertaining to your OS and a small window should pop-up.
+8. Now in the Triple Battle Converter folder, double-click on the Triple Battle Converter tool pertaining to your OS and a small window should pop-up.
 
-6. Within the window, click on the `Browse...` button and navigate to the newly renamed `trdata` folder. Select it and click `Select Folder`.
+9. Within the window, click on the `Browse...` button and navigate to the newly renamed `trdata` folder. Select it and click `Select Folder`.
 
-7. Select which game you're converting below, select what type of battle you'd like, then click the `Convert` button.
+10. Select which game you're converting below, select what type of battle you'd like, then click the `Convert` button.
    If all went well, you should see a window pop-up with **Modified 785/950 Trainers** inside. That means all the trainers are now converted!
 
-8. Now go back to the `GARCTool` and select `Open Folder`. Browse to your modified `trdata` folder, select it, and click process.
+11. Now go back to the `GARCTool` and select `Open Folder`. Browse to your modified `trdata` folder, select it, and click process.
 
-9. Navigate back to this directory, and you should see a `trdata.garc` file within. Delete your `trdata` folder and the original garc file. Rename this `trdata.garc` file to the original.
+12. Navigate back to this directory, and you should see a `trdata.garc` file within. Delete your `trdata` folder and the original garc file. Rename this `trdata.garc` file to the original.
 
-10. Now go back to the `DotNet 3DS Toolkit` and go to the `Build` tab. The settings within this tab should be as followed:
+13. Now go back to the `DotNet 3DS Toolkit` and go to the `Build` tab. The settings within this tab should be as followed:
     - For the `Source Directory`, browse to the new folder that you created on your desktop.
     - For the `Output ROM`, browse to where you'd like the finished ROM to go and give it a name.
     - For the `Output ROM Format`, select `0-Key Encrypted CCI (for Gateway)`.
 
-11. Now click the `Build` button and a new window should pop-up showing the rebuilding process. Once that's complete, you're done building your game!
+14. Now click the `Build` button and a new window should pop-up showing the rebuilding process. Once that's complete, you're done building your game!
 
 ## Limitations
 
