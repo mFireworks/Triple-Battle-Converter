@@ -19,9 +19,6 @@ namespace TripleBattleConverter2
     public partial class MainWindow : Window
     {
 
-        private int[] game1Omit = { 0, 53, 54, 55, 59, 60, 61, 64 }; // omit empty trainer, first rival fights, and first N fight. Same as universial randomizer
-        private int[] game2Omit = { 0, 161, 162, 163, 342, 347, 356, 360, 361, 362, 363, 364, 365, 374, 375, 376, 377, 797, 798, 799 };     // omit empty trainer, first rival battle and required multi-battles
-
         public MainWindow()
         {
             InitializeComponent();
@@ -45,8 +42,9 @@ namespace TripleBattleConverter2
         private long? checkFiles(string[] files)
         {
             long fileSize = 0;
-            foreach (string filePath in files)
+            for (int index = 1; index < files.Length; ++index) // Skip 000.bin
             {
+                string filePath = files[index];
                 if (Path.GetExtension(filePath).Length != 0 && !Path.GetExtension(filePath).Equals(".bin"))
                 {
                     return null;
@@ -55,6 +53,19 @@ namespace TripleBattleConverter2
                 fileSize += file.Length;
             }
             return fileSize;
+        }
+
+        private ErrorType verifyFiles(GameType game, int count, long? size)
+        {
+            if (size == null || size != game.getExpectedSize())
+            {
+                return ErrorType.IncorrectFileSize;
+            }
+            if (count != game.getExpectedCount())
+            {
+                return ErrorType.IncorrectFileCount;
+            }
+            return ErrorType.None;
         }
 
         private void doConvert(object sender, RoutedEventArgs e)
@@ -89,13 +100,13 @@ namespace TripleBattleConverter2
                 //else if (BW1.IsChecked == true)
                 //    game = new BW1();
 
-                switch (game.verifyFiles(files.Length, fileSize))
+                switch (verifyFiles(game, files.Length, fileSize))
                 {
                     case ErrorType.IncorrectFileSize:
-                        sendError("The total file size for the trdata folder doesn't match what's expected for Black/White. Make sure you selected the right directory!");
+                        sendError("The total file size for the trdata folder was " + fileSize + ", which doesn't match " + game.getExpectedSize() + " that's expected for " + game.getGameName() + ". Make sure you selected the right directory!");
                         return;
                     case ErrorType.IncorrectFileCount:
-                        sendError("There's not 616 files within the trdata folder for Black/White. Make sure you selected the right directory!");
+                        sendError("There's not " + game.getExpectedCount() + " files within the trdata folder for " + game.getGameName() + ", found " + files.Length + ". Make sure you selected the right directory!");
                         return;
                 }
                 game.omitTrainers(files);

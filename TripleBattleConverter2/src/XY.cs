@@ -15,17 +15,19 @@ namespace TripleBattleConverter2.src
             AIOffset = 0x0C;
         }
 
-        public override ErrorType verifyFiles(int count, long? size)
+        public override string getGameName()
         {
-            if (size == null || size != 15696)
-            {
-                return ErrorType.IncorrectFileSize;
-            }
-            if (count != 785)
-            {
-                return ErrorType.IncorrectFileCount;
-            }
-            return ErrorType.None;
+            return "X/Y";
+        }
+
+        public override int getExpectedCount()
+        {
+            return 785;
+        }
+
+        public override int getExpectedSize()
+        {
+            return 15680;
         }
     }
 }
