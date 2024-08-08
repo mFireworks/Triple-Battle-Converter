@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TripleBattleConverter2"
         mc:Ignorable="d"
-        Title="Triple Battle Converter - Created by: Fireworks" Height="220" Width="560" MinHeight="220" MinWidth="560">
+        Title="Triple Battle Converter - Created by: Fireworks" Height="268" Width="560" MinHeight="220" MinWidth="560">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="147"/>
@@ -23,10 +23,13 @@
         <Label x:Name="BattleModeLabel" Content="Battle Type:" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
         <Separator HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" Height="8" Width="527" Grid.ColumnSpan="3"/>
         <Separator HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top" Height="8" Width="527" Grid.ColumnSpan="3"/>
-        <RadioButton x:Name="TripleBattles" Grid.Column="1" Content="Triple Battles" HorizontalAlignment="Left" Margin="9,140,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Type"/>
-        <RadioButton x:Name="RotationBattles" Grid.Column="1" Content="Rotation Battles" HorizontalAlignment="Left" Margin="9,160,0,0" VerticalAlignment="Top" GroupName="Type"/>
+        <RadioButton x:Name="TripleBattles" Grid.Column="1" Content="Triple Battles" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Type"/>
+        <RadioButton x:Name="RotationBattles" Grid.Column="1" Content="Rotation Battles" HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top" GroupName="Type"/>
         <RadioButton x:Name="ORAS" Grid.Column="1" Content="Omega Ruby/Alpha Sapphire" HorizontalAlignment="Left" Margin="10,107,0,0" VerticalAlignment="Top" GroupName="Game"/>
         <RadioButton x:Name="XY" Grid.Column="1" Content="X/Y" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" GroupName="Game"/>
+        <RadioButton x:Name="DoubleBattles" Grid.Column="1" Content="Double Battles" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" GroupName="Type"/>
+        <RadioButton x:Name="SingleBattles" Grid.Column="1" Content="Single Battles" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" GroupName="Type"/>
+        <RadioButton x:Name="RandomBattles" Grid.Column="1" Content="Random" HorizontalAlignment="Left" Margin="10,219,0,0" VerticalAlignment="Top" GroupName="Type"/>
 
     </Grid>
 </Window>

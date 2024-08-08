@@ -10,7 +10,7 @@ namespace TripleBattleConverter2.src
     {
         protected byte battleByte;
 
-        public byte getBattleByte()
+        virtual public byte getBattleByte()
         { 
             return battleByte;
         }

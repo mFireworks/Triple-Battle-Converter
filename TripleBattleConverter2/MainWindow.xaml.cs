@@ -111,11 +111,17 @@ namespace TripleBattleConverter2
                 }
                 game.omitTrainers(files);
 
-                BattleType battleType = new TripleBattles();
-                if (RotationBattles.IsChecked == true)
+                BattleType battleType = new SingleBattles();
+                if (DoubleBattles.IsChecked == true)
+                    battleType = new DoubleBattles();
+                else if (TripleBattles.IsChecked == true)
+                    battleType = new TripleBattles();
+                else if (RotationBattles.IsChecked == true)
                     battleType = new RotationBattles();
-                //else if (TripleBattles.IsChecked == true)
-                //    type = new TripleBattles();
+                else if (RandomBattles.IsChecked == true)
+                    battleType = new RandomBattles();
+                //else if (SingleBattles.IsChecked == true)
+                //    type = new SingleBattles();
 
                 foreach (string file in files)
                 {
