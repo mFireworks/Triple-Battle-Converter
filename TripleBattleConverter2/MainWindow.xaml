@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TripleBattleConverter2"
         mc:Ignorable="d"
-        Title="Triple Battle Converter - Created by: Fireworks" Height="281" Width="560" MinHeight="220" MinWidth="560">
+        Title="Battle Converter - Created by: Fireworks" Height="281" Width="560" MinHeight="220" MinWidth="560">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="147"/>
