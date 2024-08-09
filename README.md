@@ -14,7 +14,7 @@ This program modifies files within a folder at the binary level. Incorrect usage
 
 **For All Versions**
 
-[Universal Pokemon Randomizer](https://github.com/Ajarmar/universal-pokemon-randomizer-zx/releases) - Used to randomize the game and set some of the flags that this tool doesn't set. (This tool does require java to run)
+[Universal Pokemon Randomizer](https://github.com/Ajarmar/universal-pokemon-randomizer-zx/releases) - Used to randomize the game and set some of the flags that this tool doesn't set. (This tool does require [Java](https://www.oracle.com/java/technologies/downloads/#java22) to run)
 
 [.NET 8](https://dotnet.microsoft.com/en-us/download) - This tool is written in C#, which requires the .Net Runtime to be installed on your machine. This link should provide the download that fits your OS and processor.
 
@@ -42,6 +42,8 @@ It's recommended the watch the following youtube video for clear instructions, b
 
 [Youtube Video](https://www.youtube.com/watch?v=u3LQNY04gO8&lc) - For Generation 5 Games
 
+[Youtube Video](https://www.youtube.com/watch?v=BiT1Pt8SW08) - For Generation 6 Games
+
 ### All Generations
 
 1. Open the `Universal Pokemon Randomizer` and load your game into the tool. Most of the settings within here are fair game. Though there are two required settings to set.
@@ -60,6 +62,7 @@ It's recommended the watch the following youtube video for clear instructions, b
 4. Now open `NDS Editor (kiwi.ds)` and drag your `trdata.narc` file into the window. Double click on the added entry to the list, check all files within the archive, and extract all files. This should create a folder named `trdata` within the same folder as `NDS Editor` with the specified number of files within it:
     - Black 1/White 1: 616 Files
     - Black 2/White 2: 814 Files
+    - Note: Make sure your `trdata.narc` is in a different directory than the `kiwi.ds` executable. Otherwise, you might get an error about overwriting files when trying to extract the files.
 
 5. Now in the Triple Battle Converter folder, double-click on `TripleBattleConverter2.exe` and a small window should pop-up.
 
@@ -100,7 +103,7 @@ It's recommended the watch the following youtube video for clear instructions, b
 
 11. Now go back to the `GARCTool` and select `Open Folder`. Browse to your modified `trdata` folder, select it, and click process.
 
-12. Navigate back to this directory, and you should see a `trdata.garc` file within. Delete your `trdata` folder and the original garc file. Rename this `trdata.garc` file to the original.
+12. Navigate back to the directory with your newly created `trdata.garc` file. Delete your `trdata` folder and the original garc file (either `6` or `8`, depending on which game your modifying). Rename your newly created `trdata.garc` file to the file you just deleted.
 
 13. Now go back to the `DotNet 3DS Toolkit` and go to the `Build` tab. The settings within this tab should be as followed:
     - For the `Source Directory`, browse to the new folder that you created on your desktop.
