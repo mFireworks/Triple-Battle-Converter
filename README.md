@@ -62,7 +62,8 @@ It's recommended the watch the following youtube video for clear instructions, b
 4. Now open `NDS Editor (kiwi.ds)` and drag your `trdata.narc` file into the window. Double click on the added entry to the list, check all files within the archive, and extract all files. This should create a folder named `trdata` within the same folder as `NDS Editor` with the specified number of files within it:
     - Black 1/White 1: 616 Files
     - Black 2/White 2: 814 Files
-    - Note: Make sure your `trdata.narc` is in a different directory than the `kiwi.ds` executable. Otherwise, you might get an error about overwriting files when trying to extract the files.
+    - Note #1: Make sure your `trdata.narc` is in a different directory than the `kiwi.ds` executable. Otherwise, you might get an error about overwriting files when trying to extract the files.
+    - Note #2: `kiwi.ds` has a bug where if you have a non-english character within the filepath to your `trdata.narc` file, it'll throw an Unsupported File Type error. An easy way around this issue is to put the `trdata.narc` file onto a flashdrive and drag it into kiwi from there.
 
 5. Now in the Triple Battle Converter folder, double-click on `TripleBattleConverter2.exe` and a small window should pop-up.
 
