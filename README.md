@@ -4,7 +4,14 @@
 
 This tool is to automate the process of setting all the trainers within Pokemon Black 1, White 1, Black 2, and White 2 to triple battles. It doesn't do anything more than just setting the Battle Type flag in the usable trainers from whatever it is prior, to a triple battle.
 
-These instructions are made for solely the Gen 5 Pokemon games. While support for gen 6 is there, it's a bit of a different process.
+The guides assumes your machine is running Windows. That's the only OS that I can work on to make a guide for. However, someone did go through the generation 5 process on Linux using the same tools. To get the tools to run properly on Linux, here's the setup they had to use:
+- Bottles
+- Runner: caffe-9.7
+- Dependencies:
+    - mono
+    - dotnetcoredesktop8
+
+Thanks return215 for figuring this out!
 
 ## Disclaimer
 
